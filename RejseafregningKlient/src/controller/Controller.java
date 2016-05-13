@@ -12,6 +12,7 @@ public class Controller {
 	private UI ui;
 	String brugernavn;
 	String password;
+	Boolean running = true;
 
 	public Controller() {
 		url = "http://ec2-52-39-152-237.us-west-2.compute.amazonaws.com:8080/Rejseafregning/api/";
@@ -35,27 +36,36 @@ public class Controller {
 	public void menukald() throws IOException {
 		String valgtInfo;
 		
-		while(true) {
+		while(running) {
 			int valg = ui.menu();
-			if(valg == 1) {
+			switch(valg){
+			case 1:
 				valgtInfo = data.stringFromUrl(url+"info/");
 				ui.print(valgtInfo);
-			}
-			else if(valg == 2) {
+				break;
+				
+			case 2:
 				valgtInfo = data.stringFromUrl(url+"info/" + brugernavn);	
 				ui.print(valgtInfo);
-			}
-			else if(valg == 3) {
+				break;
+				
+			case 3:
 				valgtInfo = data.stringFromUrl(url + "info/" + brugernavn + "/" + password);
 				ui.print(valgtInfo);
-			}
-			else if(valg == 4){
+				break;
+				
+			case 4:
 				String adr = ui.adresse();
 				valgtInfo = data.putUrl(url + "opdater/" + brugernavn + "/" + password + adr, brugernavn + "/" + password + adr);
-			}
-			else if(valg == 9) {
-				ui.print("Farvel");
 				break;
+				
+			case 9:
+				ui.print("Farvel");
+				running = false;
+				break;
+				
+			default:
+				System.out.println("Du skal vælge en af de tilgængelige valgmuligheder.");
 			}
 		} 
 	}
