@@ -50,15 +50,15 @@ public class UI {
 	public String adresse(){
 		String adr = "/";
 		System.out.println("Indtast postnr:");
-		adr += scan.nextLine() + "/";
+		adr += scan.next() + "/";
 		System.out.println("Indtast vejnavn:");
-		adr += scan.nextLine() + "/";
+		adr += scan.next() + "/";
 		System.out.println("Indtast husnr:");
-		adr += scan.nextLine() + "/";
+		adr += scan.next() + "/";
 		System.out.println("Indtast etage:");
-		adr += scan.nextLine() + "/";
+		adr += scan.next() + "/";
 		System.out.println("Indtast doer:");
-		adr += scan.nextLine();
+		adr += scan.next();
 		
 		return adr;
 	}
