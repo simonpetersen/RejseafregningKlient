@@ -65,7 +65,7 @@ public class Controller {
 				break;
 				
 			default:
-				System.out.println("Du skal vælge en af de tilgængelige valgmuligheder.");
+				ui.print("Du skal vælge en af de tilgængelige valgmuligheder.");
 			}
 		} 
 	}
