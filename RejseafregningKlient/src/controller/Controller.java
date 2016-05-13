@@ -27,7 +27,7 @@ public class Controller {
 			menukald();
 		}
 		else {
-			System.out.println("Det var ikke et match, prøv igen.");
+			ui.print("Det var ikke et match, prÃ¸v igen.");
 			run();
 		}
 	}
@@ -54,7 +54,7 @@ public class Controller {
 				valgtInfo = data.putUrl(url + "opdater/" + brugernavn + "/" + password + adr, brugernavn + "/" + password + adr);
 			}
 			else if(valg == 9) {
-				System.out.println("Farvel");
+				ui.print("Farvel");
 				break;
 			}
 		} 
