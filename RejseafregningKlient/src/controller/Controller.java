@@ -30,14 +30,13 @@ public class Controller {
 			System.out.println("Det var ikke et match, prøv igen.");
 			run();
 		}
-
 	}
 
 	public void menukald() throws IOException {
-		int valg = ui.menu();
 		String valgtInfo;
+		
 		while(true) {
-			
+			int valg = ui.menu();
 			if(valg == 1) {
 				valgtInfo = data.stringFromUrl(url+"info/");
 				ui.print(valgtInfo);
@@ -47,7 +46,8 @@ public class Controller {
 				ui.print(valgtInfo);
 			}
 			else if(valg == 3) {
-				
+				valgtInfo = data.stringFromUrl(url + "info/" + brugernavn + "/" + password);
+				ui.print(valgtInfo);
 			}
 			else if(valg == 9) {
 				System.out.println("Farvel");
