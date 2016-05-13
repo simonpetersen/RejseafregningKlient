@@ -49,6 +49,10 @@ public class Controller {
 				valgtInfo = data.stringFromUrl(url + "info/" + brugernavn + "/" + password);
 				ui.print(valgtInfo);
 			}
+			else if(valg == 4){
+				String adr = ui.adresse();
+				valgtInfo = data.putUrl(url + "opdater/" + brugernavn + "/" + password + adr, brugernavn + "/" + password + adr);
+			}
 			else if(valg == 9) {
 				System.out.println("Farvel");
 				break;
