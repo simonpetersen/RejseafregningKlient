@@ -10,6 +10,8 @@ public class Controller {
 	private String url;
 	private DataGetter data;
 	private UI ui;
+	String brugernavn;
+	String password;
 
 	public Controller() {
 		url = "http://ec2-52-39-152-237.us-west-2.compute.amazonaws.com:8080/Rejseafregning/api/";
@@ -18,13 +20,20 @@ public class Controller {
 	}
 
 	public void run() throws IOException {
-		String info;
-		menukald();
+		brugernavn = ui.loginbrugernavn();
+		password = ui.loginpassword();
+		String bruger = data.stringFromUrl(url+"opdater/" + brugernavn + "/" + password);
+		if(bruger.substring(0,17).equals("Koden er korrekt.")) {
+			menukald();
+		}
+		else {
+			System.out.println("Det var ikke et match, prøv igen.");
+			run();
+		}
 
 	}
 
 	public void menukald() throws IOException {
-		String brugernavn = ui.loginbrugernavn();
 		int valg = ui.menu();
 		String valgtInfo;
 		while(true) {
@@ -38,9 +47,10 @@ public class Controller {
 				ui.print(valgtInfo);
 			}
 			else if(valg == 3) {
-				//valgtInfo = data.stringFromUrl(url+"info/" + );
+				
 			}
 			else if(valg == 9) {
+				System.out.println("Farvel");
 				break;
 			}
 		} 
