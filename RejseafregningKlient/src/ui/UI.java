@@ -1,16 +1,18 @@
 package ui;
 
-import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
-
-import controller.Controller;
 
 public class UI {
 	
-	Scanner scan = new Scanner(System.in);
+	private Scanner scan;
+	
+	public UI() {
+		scan = new Scanner(System.in);
+	}
 	
 	
-	public void print(String info) throws IOException {
+	public void print(String info) {
 		System.out.println(info);
 	}
 	
@@ -33,16 +35,17 @@ public class UI {
 		
 	}
 	public int menu() {
-		System.out.println("Vælg funktion: "); 
+		System.out.println("---------------------------------------------");
+		System.out.println("Funktioner: ");
+		System.out.println("---------------------------------------------");
 		System.out.println("1. Info om antal rejseafregninger og bruger.");
 		System.out.println("2. Se dine informationer.");
 		System.out.println("3. Se dine rejseafregningere");
 		System.out.println("4. Opdater din adresse");
 		System.out.println("9. Afslut");
+		System.out.println("---------------------------------------------");
 		
-		int valg;
-		valg = scan.nextInt();
-		
+		int valg = scan.nextInt();
 		return valg;
 	}
 

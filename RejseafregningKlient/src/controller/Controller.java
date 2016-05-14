@@ -10,14 +10,14 @@ public class Controller {
 	private String url;
 	private DataGetter data;
 	private UI ui;
-	String brugernavn;
-	String password;
-	Boolean running = true;
+	private String brugernavn, password;
+	private boolean running;
 
 	public Controller() {
 		url = "http://ec2-52-39-152-237.us-west-2.compute.amazonaws.com:8080/Rejseafregning/api/";
 		data = new DataGetter();
 		ui = new UI();
+		running = true;
 	}
 
 	public void run() throws IOException {
@@ -65,7 +65,7 @@ public class Controller {
 				break;
 				
 			default:
-				ui.print("Du skal vælge en af de tilgængelige valgmuligheder.");
+				ui.print("Benyt venligst en af de gyldige valgmuligheder.");
 			}
 		} 
 	}
