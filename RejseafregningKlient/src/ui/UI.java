@@ -38,10 +38,11 @@ public class UI {
 		System.out.println("---------------------------------------------");
 		System.out.println("Funktioner: ");
 		System.out.println("---------------------------------------------");
-		System.out.println("1. Info om antal rejseafregninger og bruger.");
-		System.out.println("2. Se dine informationer.");
+		System.out.println("1. Info om antal rejseafregninger og bruger");
+		System.out.println("2. Se dine informationer");
 		System.out.println("3. Se dine rejseafregningere");
 		System.out.println("4. Opdater din adresse");
+		System.out.println("5. Opret ny opgave");
 		System.out.println("9. Afslut");
 		System.out.println("---------------------------------------------");
 		
@@ -64,5 +65,14 @@ public class UI {
 		adr += scan.next();
 		
 		return adr;
+	}
+	
+	public String OpretOpgave(){
+		String opgave = "";
+		System.out.println("Indtast navnet på den nye opgave");
+		System.out.println("Navnet må IKKE indeholde mellemrum");
+		opgave += scan.next();
+		
+		return opgave;
 	}
 }

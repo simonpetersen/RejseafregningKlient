@@ -57,4 +57,39 @@ public class DataGetter {
 
 		return resp;
 	}
+	
+	public String postUrl(String url, String urlParameters) throws IOException 
+	{
+		String resp = null;
+
+		URL newURL = new URL(url);
+
+		HttpURLConnection connection = (HttpURLConnection) newURL.openConnection();
+		connection.setReadTimeout(10000);
+		connection.setConnectTimeout(15000);
+		connection.setRequestMethod("POST");
+		connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+		connection.setDoInput(true);
+		connection.setDoOutput(true);
+
+		String requestBody = urlParameters.toString();
+		byte[] outputBytes = requestBody.getBytes();
+		OutputStream output = connection.getOutputStream();
+		output.write(outputBytes);
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+		String line = "";
+		StringBuilder responseOutput = new StringBuilder();
+
+		while((line = br.readLine()) != null)
+		{
+			responseOutput.append(line);
+		}
+
+		resp = responseOutput.toString();
+
+		output.close();
+
+		return resp;
+	}
 }

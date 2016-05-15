@@ -59,6 +59,11 @@ public class Controller {
 				valgtInfo = data.putUrl(url + "opdater/" + brugernavn + "/" + password + adr, brugernavn + "/" + password + adr);
 				break;
 				
+			case 5: 
+				String opgave = ui.OpretOpgave();
+				valgtInfo = data.postUrl(url + "opgave/" + opgave, opgave);
+				break;
+				
 			case 9:
 				ui.print("Farvel");
 				running = false;
